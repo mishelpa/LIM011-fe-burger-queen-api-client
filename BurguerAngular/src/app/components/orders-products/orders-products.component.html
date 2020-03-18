@@ -1,0 +1,15 @@
+<section class="container mt-4">
+<div class="row">
+<div class="col-3" *ngFor="let product of productsInOrders">
+<div *ngIf="typeProduct===product.type">
+<div class="card" (click)= "sendOrder(product)">
+    <img src="{{product.image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text text-center">{{product.name}}</p>
+      <p class="card-text text-center">S/. {{product.price}}</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>

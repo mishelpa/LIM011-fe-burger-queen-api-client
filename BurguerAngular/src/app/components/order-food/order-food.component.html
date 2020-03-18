@@ -1,0 +1,29 @@
+<section class="container">
+  <div class="row">
+
+    <nav aria-label="breadcrumb" class="col-12">
+      <ol class="breadcrumb d-flex justify-content-between">
+        <li class="breadcrumb-item" aria-current="page">Orden</li>
+        <li aria-current="page">Fecha: {{dateOrder|date:"short"}}</li>
+        <li  aria-current="page">Mesero: {{emailUser}}</li>
+      </ol>
+    </nav>
+
+    <div class="input-group mb-3 col-12">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Cliente</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]=nameClient placeholder="Nombre del cliente" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="col-12"><app-bill-order></app-bill-order></div>
+
+  </div>
+
+  <div class="input-group-prepend d-flex flex-row-reverse">
+    <span class="input-group-text" id="basic-addon1">Total: {{getTotalBill()}}</span>
+  </div>
+
+  <button type="button" class="btn btn-secondary" (click)="postOrderFood()">Enviar</button>
+
+</section>
