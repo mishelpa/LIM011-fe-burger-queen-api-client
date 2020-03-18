@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   sessionStorage.setItem('emailCurrentUser', this.newUser.email );
   this.authService.checkUser(this.newUser).subscribe(
       response => {
-        this.router.navigate(['/users']);
+        this.router.navigate(['/orders']);
       },
       error => {
         this.messageError();
