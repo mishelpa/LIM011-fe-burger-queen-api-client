@@ -18,8 +18,6 @@ export class OrderFoodComponent implements OnInit {
 
   constructor(private ordersService: OrdersService) {
     this.ordersService.currentListProducts.subscribe(product => { this.orders = product; });
-    this.orders = this.ordersService.products;
-    console.log(this.orders);
   }
 
   ngOnInit(): void {

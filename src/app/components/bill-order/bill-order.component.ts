@@ -11,7 +11,7 @@ export class BillOrderComponent implements OnInit {
   public orders: any;
   public num: number;
   constructor(private ordersService: OrdersService) {
-    this.orders = this.ordersService.products;
+    this.ordersService.currentListProducts.subscribe(product => this.orders = product);
   }
 
   ngOnInit(): void {
