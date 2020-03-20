@@ -23,6 +23,9 @@ import { PagesOrderComponent } from './pages/pages-order/pages-order.component';
 import { OrdersProductsComponent } from './components/orders-products/orders-products.component';
 import { OrderFoodComponent } from './components/order-food/order-food.component';
 import { BillOrderComponent } from './components/bill-order/bill-order.component';
+import { ListOrdersComponent } from './components/list-orders/list-orders.component';
+import { PageAllOrdersComponent } from './pages/page-all-orders/page-all-orders.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { BillOrderComponent } from './components/bill-order/bill-order.component
     PagesOrderComponent,
     OrdersProductsComponent,
     OrderFoodComponent,
-    BillOrderComponent
+    BillOrderComponent,
+    ListOrdersComponent,
+    PageAllOrdersComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

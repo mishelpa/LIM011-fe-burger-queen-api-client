@@ -15,6 +15,9 @@ export class OrdersService {
   private listProducts = new BehaviorSubject<Array<any>>([]);
   public currentListProducts = this.listProducts.asObservable();
 
+  private ordersEdit = new BehaviorSubject('hola');
+  public currentOrdersEdit = this.ordersEdit.asObservable();
+
   addListProducts(order) {
     const indexProduct = this.products.findIndex(product => product.name === order.name);
 
@@ -30,6 +33,10 @@ export class OrdersService {
 
   getListProducts(): Observable<any> {
     return this.http.get(this.url + 'products');
+  }
+
+  getListOrders(): Observable<any> {
+    return this.http.get(this.url + 'orders');
   }
 
   postOrder(order): Observable<any> {

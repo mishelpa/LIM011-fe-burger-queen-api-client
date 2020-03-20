@@ -25,12 +25,15 @@ export class AuthService {
       .pipe(map(userLogged => {
             sessionStorage.setItem('currentUser', userLogged['token']);
             this.currentUserSubject.next(user);
+            console.log(typeof userLogged);
             return userLogged;
       }));
     }
 
   logout() {
     sessionStorage.removeItem('currentUser');
+    sessionStorage.removeItem('emailCurrentUser');
+    sessionStorage.removeItem('rolCurrentUser');
     this.currentUserSubject.next(null);
     }
 }

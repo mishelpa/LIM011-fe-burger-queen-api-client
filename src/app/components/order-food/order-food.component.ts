@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
+import { RouterLinkActive, Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class OrderFoodComponent implements OnInit {
   public totalBill: number;
   public orderTotal: any;
 
-  constructor(private ordersService: OrdersService) {
+  constructor(private ordersService: OrdersService, private router: Router) {
     this.ordersService.currentListProducts.subscribe(product => { this.orders = product; });
   }
 
@@ -52,11 +53,9 @@ export class OrderFoodComponent implements OnInit {
   }
 
   postOrderFood() {
-
     this.ordersService.postOrder(this.createOrderFood()).subscribe((response) => {
       console.log(response);
-      window.location.reload();
+      this.router.navigate(['/allOrders']);
     });
-
   }
 }
