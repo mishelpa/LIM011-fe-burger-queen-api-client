@@ -1,0 +1,27 @@
+.qty-product{
+    border: 2pt solid black;
+}
+
+.product-details{
+    display: flex;
+    flex-direction: row;
+    font-size: 80%;
+    .name-product{
+        width: 70%;
+        background: white;
+        border: 2pt solid  rgb(255, 193, 7);
+        margin-right: 2%;
+    }
+    .price-product{
+        width: 15%;
+        background: white;
+        border: 2pt solid  rgb(255, 193, 7);
+        margin-right: 2%;
+    }
+    .total-product{
+        width: 15%;
+        background: white;
+        border: 2pt solid  rgb(255, 193, 7);
+        margin-right: 2%;
+    }
+}

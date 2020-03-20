@@ -1,12 +1,12 @@
 <section class="container" *ngFor="let order of orders">
 <div class="input-group mb-3 row ">
-    <input type="number" class="form-control col-1" value="" [(ngModel)]=order.quantity aria-describedby="basic-addon1">
-    <div class="input-group-prepend col-10 d-flex justify-content-between">
-        <span class="input-group-text" id="basic-addon1">{{order.name}}</span>
-        <span class="input-group-text" id="basic-addon1">{{order.price}}</span>
-        <span class="input-group-text" id="basic-addon1">{{order.price*order.quantity}}</span>
-      </div>
-   <button type="button" class="btn btn-light col-1" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    <input type="number" class="form-control col-2 qty-product text-center" value="" [(ngModel)]=order.quantity aria-describedby="basic-addon1">
+    <div class="input-group-prepend col-9  product-details">
+      <span class="input-group-text name-product" id="basic-addon1">{{order.name}}</span>
+      <span class="input-group-text price-product" id="basic-addon1">{{order.price}}</span>
+      <span class="input-group-text total-product" id="basic-addon1">{{order.price*order.quantity}}</span>
+    </div>
+    <button type="button" class="btn btn-warning col-1" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 
   </div>
 </section>

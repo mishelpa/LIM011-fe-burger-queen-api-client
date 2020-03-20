@@ -1,19 +1,19 @@
 <section class="container">
   <div class="row">
 
-    <nav aria-label="breadcrumb" class="col-12">
+    <nav aria-label="breadcrumb" class="col-12 header-order">
       <ol class="breadcrumb d-flex justify-content-between">
-        <li class="breadcrumb-item" aria-current="page">Orden</li>
-        <li aria-current="page">Fecha: {{dateOrder|date:"short"}}</li>
-        <li  aria-current="page">Mesero: {{emailUser}}</li>
+        <li class="breadcrumb-item" aria-current="page"><b>PEDIDOS</b></li>
+        <li aria-current="page"><b> Fecha:</b> {{dateOrder|date:"short"}}</li>
+        <li aria-current="page"><b> Mesero:</b> {{emailUser}}</li>
       </ol>
     </nav>
 
-    <div class="input-group mb-3 col-12">
+    <div class="input-group mb-3 col-12 ">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Cliente</span>
+        <span class="input-group-text name-client" id="basic-addon1">Cliente</span>
       </div>
-      <input type="text" class="form-control" [(ngModel)]=nameClient placeholder="Nombre del cliente" aria-label="Username" aria-describedby="basic-addon1">
+      <input type="text" class="form-control input-name-client" [(ngModel)]=nameClient placeholder="Nombre del cliente" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
     <div class="col-12"><app-bill-order></app-bill-order></div>
@@ -21,9 +21,10 @@
   </div>
 
   <div class="input-group-prepend d-flex flex-row-reverse">
-    <span class="input-group-text" id="basic-addon1">Total: {{getTotalBill()}}</span>
+    <span class="input-group-text total-bill" id="basic-addon1"><b>Total: {{getTotalBill()}}</b></span>
   </div>
 
-  <button type="button" class="btn btn-secondary" (click)="postOrderFood()">Enviar</button>
-
+  <div class="btn-post-order">
+    <button type="button" class="btn btn-warning" (click)="postOrderFood()">Enviar Pedido</button>
+  </div>
 </section>
