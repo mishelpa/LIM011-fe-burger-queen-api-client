@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageAllOrdersComponent implements OnInit {
 
+  statusOrders: string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getStatus(status: string) {
+    this.statusOrders = status;
+    console.log(this.statusOrders);
+  }
 }

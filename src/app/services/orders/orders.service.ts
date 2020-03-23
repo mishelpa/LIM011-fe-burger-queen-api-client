@@ -44,4 +44,12 @@ export class OrdersService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url + 'orders', params, {headers});
     }
+
+  deleteOrder(order): Observable<any> {
+    return this.http.delete(this.url + 'orders' + '/' + order.id);
+  }
+
+  updateOrder(order): Observable<any> {
+    return this.http.put(this.url + 'orders' + '/' + order.id, order);
+}
 }
