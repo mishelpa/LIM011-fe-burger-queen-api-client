@@ -3,7 +3,7 @@
 	<div class="col-6 col-md-4 bill" *ngFor="let order of orders">
 					<div>
 							<span>{{order.id}}</span>
-							<span>{{order.status}}</span>
+							<span class="d-flex flex-row-reverse">{{order.status}}</span>
 							<p>{{order.userId}}</p>
 							<p>{{order.client}}</p>
 					</div> 

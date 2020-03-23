@@ -6,7 +6,7 @@
       <span class="input-group-text price-product" id="basic-addon1">{{order.price}}</span>
       <span class="input-group-text total-product" id="basic-addon1">{{order.price*order.quantity}}</span>
     </div>
-    <button type="button" class="btn btn-warning col-1" title="Eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-warning col-1" title="Eliminar" (click)="deleteProductOfBill(order)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
 
   </div>
 </section>

@@ -29,6 +29,6 @@ export class AuthInterceptorService implements HttpInterceptor {
     }
 
     isError(error: HttpErrorResponse) {
-      return throwError('sucedio un error');
+      return throwError(error);
     }
 }

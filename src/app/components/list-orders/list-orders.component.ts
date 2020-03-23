@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
   styleUrls: ['./list-orders.component.scss']
 })
 export class ListOrdersComponent implements OnInit {
+
+  @Input() public statusOrders: string;
 
   public orders: any;
   public products: any;
@@ -24,9 +26,6 @@ export class ListOrdersComponent implements OnInit {
     this.ordersService.getListOrders().subscribe(
       response => {
         this.orders = response.orders;
-        console.log(this.orders);
-        console.log(this.dataOrders);
-        console.log(this.products);
       }
     );
   }

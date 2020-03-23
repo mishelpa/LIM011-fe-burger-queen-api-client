@@ -17,4 +17,9 @@ export class BillOrderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteProductOfBill(product) {
+    const indexProduct = this.orders.indexOf(product);
+    this.orders.splice(indexProduct, 1);
+  }
+
 }

@@ -56,6 +56,7 @@ export class OrderFoodComponent implements OnInit {
     this.ordersService.postOrder(this.createOrderFood()).subscribe((response) => {
       console.log(response);
       this.router.navigate(['/allOrders']);
-    });
+    },
+    );
   }
 }
