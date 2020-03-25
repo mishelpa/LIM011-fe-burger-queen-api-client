@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { UsersService } from 'src/app/services/users/users.service';
 import { UpdateUsersComponent } from './update-users.component';
+import { RouterTestingModule} from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule} from '@angular/forms';
 
 describe('UpdateUsersComponent', () => {
   let component: UpdateUsersComponent;
@@ -8,7 +11,9 @@ describe('UpdateUsersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateUsersComponent ]
+      declarations: [ UpdateUsersComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule, FormsModule],
+      providers: [UsersService]
     })
     .compileComponents();
   }));

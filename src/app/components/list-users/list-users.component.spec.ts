@@ -3,7 +3,7 @@ import { ListUsersComponent } from './list-users.component';
 import { RouterTestingModule} from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule} from '@angular/forms';
-import { UsersService } from '../../services/users/users.service'
+import { UsersService } from '../../services/users/users.service';
 
 describe('ListUsersComponent', () => {
   let component: ListUsersComponent;

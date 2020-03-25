@@ -23,7 +23,7 @@ export class OrdersProductsComponent implements OnInit {
   getAllProducts() {
     this.ordersService.getListProducts().subscribe(
       response => {
-        this.productsInOrders = response.products;
+        this.productsInOrders = response;
       }
     );
   }

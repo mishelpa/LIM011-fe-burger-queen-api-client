@@ -16,16 +16,15 @@ export class AuthService {
   constructor( private http: HttpClient ) {
     this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem('currentUser'));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.url = 'http://localhost:3000/';
+    this.url = 'http://167.172.210.107/';
    }
 
    checkUser(user): Observable<any> {
     const params = JSON.stringify(user);
-    return this.http.post(this.url + 'auth', params )
+    return this.http.post(this.url + 'auth', user )
       .pipe(map(userLogged => {
             sessionStorage.setItem('currentUser', userLogged['token']);
             this.currentUserSubject.next(user);
-            console.log(typeof userLogged);
             return userLogged;
       }));
     }

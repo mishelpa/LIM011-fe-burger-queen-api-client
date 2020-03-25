@@ -10,7 +10,7 @@ export class OrdersService {
   private url: string;
   public products: any = [];
 
-  constructor(private http: HttpClient) { this.url = 'http://localhost:3000/'; }
+  constructor(private http: HttpClient) { this.url = 'http://167.172.210.107/'; }
 
   private listProducts = new BehaviorSubject<Array<any>>([]);
   public currentListProducts = this.listProducts.asObservable();

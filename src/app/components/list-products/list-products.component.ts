@@ -23,7 +23,7 @@ export class ListProductsComponent implements OnInit {
   getAllProducts() {
     this.productsService.getListProducts().subscribe(
       response => {
-        this.products = response.products;
+        this.products = response;
       }
     );
   }

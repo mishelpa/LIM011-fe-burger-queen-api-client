@@ -25,7 +25,7 @@ export class ListUsersComponent implements OnInit {
   getAllUsers()  {
     this.usersService.getListUsers().subscribe(
       response => {
-       this.users = response.users;
+       this.users = response;
       },
       error => {
         if (error === 401) {

@@ -13,7 +13,7 @@ export class ProductsService {
 
   private url: string;
 
-  constructor(private http: HttpClient) { this.url = 'http://localhost:3000/'; }
+  constructor(private http: HttpClient) { this.url = 'http://167.172.210.107/'; }
   private productEdit = new BehaviorSubject(Product);
   public currentProductEdit = this.productEdit.asObservable();
 /*   private listProducts = new BehaviorSubject<Array<Product>>([]);
@@ -35,7 +35,7 @@ export class ProductsService {
     const params = JSON.stringify(product);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url + 'products', params, {headers});
-    }
+  }
 
   updateProduct(product: any) {
     console.log(product);

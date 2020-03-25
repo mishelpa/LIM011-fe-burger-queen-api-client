@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
-import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-update-users',

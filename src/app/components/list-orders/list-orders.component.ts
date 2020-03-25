@@ -29,7 +29,7 @@ export class ListOrdersComponent implements OnInit, OnChanges {
   getAllProducts() {
     this.ordersService.getListOrders().subscribe(
       response => {
-          this.orders = response.orders.filter((order) => order.status === this.statusOrder);
+          this.orders = response.filter((order) => order.status === this.statusOrder);
       }
     );
   }

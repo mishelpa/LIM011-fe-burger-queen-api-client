@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
 
   onSubmitLogin(form) {
   sessionStorage.setItem('emailCurrentUser', this.newUser.email );
+  const params = JSON.stringify(this.newUser);
   this.authService.checkUser(this.newUser).subscribe(
       response => {
         this.router.navigate(['/orders']);

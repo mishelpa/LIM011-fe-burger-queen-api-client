@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class RegisterUsersComponent implements OnInit {
   public newUser: any;
-  public message: string;
   public email: string;
   public password: string;
   public admin: boolean;
@@ -30,15 +29,11 @@ export class RegisterUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('hola');
   }
 
   onCreateUsers(form) {
-    console.log(this.newUser);
     this.usersService.postUser(this.newUser).subscribe(
       response => {
-        this.message = 'Exito';
-        console.log(response);
         window.location.reload();
       },
       error => {

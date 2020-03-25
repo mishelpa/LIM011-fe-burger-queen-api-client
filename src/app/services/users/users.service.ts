@@ -13,7 +13,7 @@ export class UsersService {
 
 
   constructor( public http: HttpClient ) {
-    this.url = 'http://localhost:3000/';
+    this.url = 'http://167.172.210.107/';
   }
 
   changeUserEdit(user) {
@@ -23,7 +23,7 @@ export class UsersService {
   postUser(user): Observable<any> {
   const params = JSON.stringify(user);
   const headers = new HttpHeaders().set('Content-Type', 'application/json');
-  return this.http.post(this.url + 'users', params, {headers});
+  return this.http.post(this.url + 'users', user, {headers});
   }
 
   getListUsers(): Observable<any> {
