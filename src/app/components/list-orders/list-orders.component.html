@@ -2,7 +2,7 @@
 <div class="row all-bill">
 	<div class="col-6 col-md-4 bill" *ngFor="let order of orders">
     <div>
-        <span>{{order.id}}</span>
+        <span>{{order._id}}</span>
         <i class="fa fa-times-circle" (click)="deleteAllOrder(order)"></i>
         <span class="d-flex flex-row-reverse">{{order.status}}</span>
         <p>{{order.userId}}</p>
@@ -10,7 +10,7 @@
     </div> 
     <div class="row" *ngFor="let product of order.products">
         <p clas="col-2">{{product.qty}}</p>
-        <img src="{{product.product.image}}" class="img-fluid col-2 rounded-circle" alt="">
+        <!-- <img src="{{product.product.image}}" class="img-fluid col-2 rounded-circle" alt=""> -->
         <p class="col-5">{{product.product.name}}</p>
         <p class="col-3">S/. {{product.product.price}}</p>
     </div>

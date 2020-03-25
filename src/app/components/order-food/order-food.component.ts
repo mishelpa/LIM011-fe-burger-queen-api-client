@@ -36,15 +36,15 @@ export class OrderFoodComponent implements OnInit {
   }
 
   createOrderFood() {
-
+    console.log(this.orders);
     const arrayProducts = this.orders.map(product => {
       const arrayProduct = {
-        productId: product.id,
+        productId: product._id,
         qty: product.quantity
       };
       return arrayProduct;
     });
-
+    console.log(arrayProducts);
     return this.orderTotal = {
      userId: this.emailUser,
      client: this.nameClient,
@@ -54,7 +54,7 @@ export class OrderFoodComponent implements OnInit {
 
   postOrderFood() {
     this.ordersService.postOrder(this.createOrderFood()).subscribe((response) => {
-      console.log(response);
+      console.log('Respuesta del post', response);
       this.router.navigate(['/allOrders']);
     },
     );

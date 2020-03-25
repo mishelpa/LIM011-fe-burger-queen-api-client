@@ -46,8 +46,10 @@ export class ListUsersComponent implements OnInit {
       this.dataUser = data;
       sessionStorage.setItem('rolCurrentUser', JSON.parse(this.dataUser.roles.admin));
       if (JSON.parse(sessionStorage.getItem('rolCurrentUser'))) {
+        console.log(JSON.parse(sessionStorage.getItem('rolCurrentUser')));
         this.getAllUsers();
       } else {
+        console.log(JSON.parse(sessionStorage.getItem('rolCurrentUser')));
         this.users = [this.dataUser];
       }
     });

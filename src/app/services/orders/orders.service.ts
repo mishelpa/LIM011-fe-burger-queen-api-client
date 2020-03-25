@@ -46,10 +46,10 @@ export class OrdersService {
     }
 
   deleteOrder(order): Observable<any> {
-    return this.http.delete(this.url + 'orders' + '/' + order.id);
+    return this.http.delete(this.url + 'orders' + '/' + order._id);
   }
 
-  updateOrder(order): Observable<any> {
-    return this.http.put(this.url + 'orders' + '/' + order.id, order);
-}
+  updateOrder(order: any) {
+    return this.http.put(this.url + 'orders' + '/' + order._id, order);
+  }
 }

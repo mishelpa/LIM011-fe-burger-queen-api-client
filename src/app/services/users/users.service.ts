@@ -21,7 +21,6 @@ export class UsersService {
   }
 
   postUser(user): Observable<any> {
-  const params = JSON.stringify(user);
   const headers = new HttpHeaders().set('Content-Type', 'application/json');
   return this.http.post(this.url + 'users', user, {headers});
   }

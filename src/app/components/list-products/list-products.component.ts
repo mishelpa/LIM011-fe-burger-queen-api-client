@@ -13,7 +13,7 @@ export class ListProductsComponent implements OnInit {
   public dataProduct: any;
 
   constructor(private productsService: ProductsService, private router: Router) {
-    this.productsService.currentProductEdit.subscribe(productEdit => { this.dataProduct = productEdit; console.log(productEdit)});
+    this.productsService.currentProductEdit.subscribe(productEdit => { this.dataProduct = productEdit; console.log(productEdit); });
   }
 
   ngOnInit(): void {
@@ -30,11 +30,10 @@ export class ListProductsComponent implements OnInit {
 
  saveProduct(product): void {
     this.productsService.changeProductEdit(product);
-    console.log(product);
   }
 
   deleteProductById(product) {
-    this.productsService.deleteProduct(product.id)
+    this.productsService.deleteProduct(product._id)
     .subscribe(data => {
       window.location.reload();
     });

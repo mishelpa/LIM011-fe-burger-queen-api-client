@@ -28,7 +28,7 @@ export class ProductsService {
   }
 
   deleteProduct(id: any) {
-    return this.http.delete(this.url + '/products' + '/' + id);
+    return this.http.delete(this.url + 'products' + '/' + id);
   }
 
   postProduct(product): Observable<any> {
@@ -38,7 +38,7 @@ export class ProductsService {
   }
 
   updateProduct(product: any) {
-    console.log(product);
-    return this.http.put(this.url + 'products' + '/' + product.id, product);
+    return this.http.put(this.url + 'products' + '/' + product._id, product);
   }
+
 }

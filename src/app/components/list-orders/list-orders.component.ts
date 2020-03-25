@@ -30,6 +30,7 @@ export class ListOrdersComponent implements OnInit, OnChanges {
     this.ordersService.getListOrders().subscribe(
       response => {
           this.orders = response.filter((order) => order.status === this.statusOrder);
+          console.log('Respuesta del getOrders', this.orders);
       }
     );
   }
@@ -42,12 +43,11 @@ export class ListOrdersComponent implements OnInit, OnChanges {
   }
 
   changeStatusOrder(order) {
-    console.log(order);
     if (order.status === 'pending') {
       order.status = 'delivered';
     }
-    if (order.status === 'delivered') {
-      order.status = 'delivering';
+    if (order.status === 'delivering') {
+      order.status = 'delivered';
     }
     console.log(order);
     this.ordersService.updateOrder(order)
