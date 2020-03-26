@@ -4,7 +4,7 @@
         <div class="card">
           <div class="card-body">
             <!-- <h1 class="text-center">REGISTRO DE USUARIOS</h1> -->
-            <form #formAuth="ngForm" (submit) = "onCreateUsers(formAuth)">
+            <form #formAuth="ngForm" (submit) = "onCreateUsers()">
                 <div class="alert alert-danger" role="alert" *ngIf="isError">
                     Existe usuario con ese email, rectifique.
                   </div>

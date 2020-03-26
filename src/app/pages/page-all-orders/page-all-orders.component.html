@@ -4,9 +4,9 @@
     <div class="col-4">
       <div class="list-group" id="list-tab" role="tablist">
         <a class="list-group-item list-group-item-action active" id="pending" (click)= getStatus($event.target.id) data-toggle="list" href="#list-pending" role="tab" aria-controls="pending" >Pendientes</a>
-        <a class="list-group-item list-group-item-action" id="canceled" (click)= getStatus($event.target.id) data-toggle="list" href="#list-canceled" role="tab" aria-controls="canceled">Cancelados</a>
-        <a class="list-group-item list-group-item-action" id="delivering" (click)= getStatus($event.target.id) data-toggle="list" href="#list-delivering" role="tab" aria-controls="delivering">Enviado</a>
-        <a class="list-group-item list-group-item-action" id="delivered" (click)= getStatus($event.target.id) data-toggle="list" href="#list-delivered" role="tab" aria-controls="delivered">Entregado</a>
+        <a class="list-group-item list-group-item-action" id="delivering" (click)= getStatus($event.target.id) data-toggle="list" href="#list-delivering" role="tab" aria-controls="delivering">Listos para servir</a>
+        <a class="list-group-item list-group-item-action" id="delivered" (click)= getStatus($event.target.id) data-toggle="list" href="#list-delivered" role="tab" aria-controls="delivered">Entregados</a>
+        <a class="list-group-item list-group-item-action" id="canceled" (click)= getStatus($event.target.id) data-toggle="list" href="#list-canceled" role="tab" aria-controls="canceled">Anulados</a>
       </div>
     </div>
     <div class="col-8">

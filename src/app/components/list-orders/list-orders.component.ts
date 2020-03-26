@@ -19,18 +19,16 @@ export class ListOrdersComponent implements OnInit, OnChanges {
 
 
   ngOnInit(): void {
-   /* this.getAllProducts(); */
   }
 
   ngOnChanges(): void {
-    this.getAllProducts();
+    this.getOrdersByStatus();
   }
 
-  getAllProducts() {
+  getOrdersByStatus() {
     this.ordersService.getListOrders().subscribe(
       response => {
           this.orders = response.filter((order) => order.status === this.statusOrder);
-          console.log('Respuesta del getOrders', this.orders);
       }
     );
   }
@@ -52,15 +50,20 @@ export class ListOrdersComponent implements OnInit, OnChanges {
 
   changeStatusOrder(order) {
     if (order.status === 'pending') {
+      order.status = 'delivering';
+    } else if (order.status === 'delivering') {
       order.status = 'delivered';
     }
-    if (order.status === 'delivering') {
-      order.status = 'delivered';
-    }
-    console.log(order);
     this.ordersService.updateOrder(order)
     .subscribe(data => {
-      console.log(data);
+      window.location.reload();
+    });
+  }
+
+  cancelOrder(order) {
+    order.status = 'canceled';
+    this.ordersService.updateOrder(order)
+    .subscribe(data => {
       window.location.reload();
     });
   }

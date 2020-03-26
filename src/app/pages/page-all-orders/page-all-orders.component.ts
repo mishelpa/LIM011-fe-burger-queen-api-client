@@ -16,6 +16,5 @@ export class PageAllOrdersComponent implements OnInit {
 
   getStatus(status: string) {
     this.statusOrders = status;
-    console.log(this.statusOrders);
   }
 }
