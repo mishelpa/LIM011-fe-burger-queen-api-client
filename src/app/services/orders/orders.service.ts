@@ -39,6 +39,10 @@ export class OrdersService {
     return this.http.get(this.url + 'orders');
   }
 
+  getOrdersById(idOrder): Observable<any> {
+    return this.http.get(this.url + 'orders' + '/' + idOrder);
+  }
+
   postOrder(order): Observable<any> {
     const params = JSON.stringify(order);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');

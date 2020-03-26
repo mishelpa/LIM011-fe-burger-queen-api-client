@@ -35,6 +35,14 @@ export class ListOrdersComponent implements OnInit, OnChanges {
     );
   }
 
+  getOrdersbyId(idOrder: any) {
+    this.ordersService.getOrdersById(idOrder).subscribe(
+      response => {
+          console.log(response);
+      }
+    );
+  }
+
   deleteAllOrder(order) {
     this.ordersService.deleteOrder(order)
     .subscribe(data => {

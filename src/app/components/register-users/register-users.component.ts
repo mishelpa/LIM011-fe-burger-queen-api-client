@@ -17,6 +17,7 @@ export class RegisterUsersComponent implements OnInit {
   public admin: boolean;
   public user: any;
   public isError = false;
+  public saludo;
 
   constructor(private usersService: UsersService, private router: Router) {
     this.newUser = {
@@ -31,17 +32,18 @@ export class RegisterUsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreateUsers(form) {
+
+  onCreateUsers() {
+   
     this.usersService.postUser(this.newUser).subscribe(
       response => {
-        window.location.reload();
+        // window.location.reload();
       },
       error => {
         this.messageError();
-        console.log(error);
       }
     );
-    form.reset();
+    this.saludo = 'hola';
   }
 
   messageError() {

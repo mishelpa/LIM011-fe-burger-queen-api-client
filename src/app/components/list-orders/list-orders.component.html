@@ -1,6 +1,7 @@
 <section class="container">
 <div class="row all-bill">
 	<div class="col-6 col-md-4 bill" *ngFor="let order of orders">
+        <button (click)="getOrdersbyId(order._id)">Detalles</button>
     <div>
         <span>{{order._id}}</span>
         <i class="fa fa-times-circle" (click)="deleteAllOrder(order)"></i>
@@ -10,12 +11,13 @@
     </div> 
     <div class="row" *ngFor="let product of order.products">
         <p clas="col-2">{{product.qty}}</p>
-        <!-- <img src="{{product.product.image}}" class="img-fluid col-2 rounded-circle" alt=""> -->
+        <!-- <img src="{{product.product.image}}" class="img-fluid col-2 rounded-circle" alt="">
         <p class="col-5">{{product.product.name}}</p>
-        <p class="col-3">S/. {{product.product.price}}</p>
+        <p class="col-3">S/. {{product.product.price}}</p> -->
     </div>
     <button *ngIf="statusOrder==='pending'" (click)="changeStatusOrder(order)">Envio a Mesa</button>
     <button *ngIf="statusOrder==='delivering'" (click)="changeStatusOrder(order)">Pagado</button>
 		</div>
   </div>
+
 </section>
