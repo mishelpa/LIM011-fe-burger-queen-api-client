@@ -1,5 +1,5 @@
 .qty-product{
-    border: 2pt solid black;
+    border: 2pt solid #e52d27;
 }
 
 .product-details{
@@ -9,19 +9,27 @@
     .name-product{
         width: 70%;
         background: white;
-        border: 2pt solid  rgb(255, 193, 7);
+        border: 2pt solid #e52d27;
         margin-right: 2%;
     }
     .price-product{
         width: 15%;
         background: white;
-        border: 2pt solid  rgb(255, 193, 7);
+        border: 2pt solid #e52d27;
         margin-right: 2%;
     }
     .total-product{
         width: 15%;
         background: white;
-        border: 2pt solid  rgb(255, 193, 7);
+        border: 2pt solid #e52d27;
         margin-right: 2%;
     }
+}
+
+.btnDelete{
+    font-size: 15px;
+}
+.btnDelete:hover{
+    background-color: white;
+    color: red;
 }
