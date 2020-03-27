@@ -1,29 +1,41 @@
 <section class="container">
-<div class="row all-bill">
-	<div class="col-6 col-md-4 bill" *ngFor="let order of orders">
-        <button (click)="getOrdersbyId(order._id)">Detalles</button>
-    <div>
-        <i class="fa fa-times-circle" (click)="deleteAllOrder(order)"></i>
-        <span class="d-flex flex-row-reverse" [ngClass]=
-        "{'text-success':order.status ==='delivered',
-        'text-primary':order.status ==='delivering',
-        'text-secondary':order.status ==='pending',
-        'text-danger':order.status ==='canceled'}"
-        >{{order.status}}</span>
-        <span class="d-flex flex-row-reverse">{{order.dateEntry | date:'MMM d, h:mm a'}}</span>
-        <span class="d-flex flex-row-reverse">{{order.dateProcessed | date:'MMM d, h:mm a'}}</span>
-        <p>{{order.userId}}</p>
-        <p>{{order.client}}</p>
-    </div> 
-    <div class="row" *ngFor="let product of order.products">
-        <p clas="col-2">{{product.qty}}</p>
-        <p class="col-5">{{product.product.name}}</p>
-        <p class="col-3">S/. {{product.product.price}}</p>
+  <div class="row all-bill">
+    <div class="col-6 col-md-4 bill" *ngFor="let order of orders">
+      <div class="orderMain" [ngClass]=
+      "{'orderDelivered':order.status ==='delivered',
+        'orderDelivering':order.status ==='delivering',
+        'orderPending':order.status ==='pending',
+        'orderCanceled':order.status ==='canceled'}"
+      >
+      <i class="fa fa-times-circle deleteOrder" (click)="deleteAllOrder(order)"></i>
+      <div>
+        <div class="text-center header-order">
+          <span *ngIf="order.status ==='pending'"><b>ORDEN PENDIENTE</b></span>
+          <span *ngIf="order.status ==='delivering'"><b>ORDEN LISTA</b></span>
+          <span *ngIf="order.status ==='delivered'"><b>ORDEN ENTREGADA</b></span>
+          <span *ngIf="order.status ==='canceled'"><b>ORDEN ANULADA</b></span>
+          <p>{{order.dateEntry | date:'medium'}}</p>
+        </div>
+        <div class="details-order">
+          <span>Mozo: {{order.userId}}</span>
+          <p>Cliente: {{order.client}}</p>
+        </div>
+       
+      </div> 
+      <div class="container products-order">
+        <div class="row" *ngFor="let product of order.products">
+          <span clas="col-2">{{product.qty}}</span>
+          <span class="col-7">{{product.product.name}}</span>
+          <span class="col-3">S/. {{product.product.price}}</span>
+        </div>
+      </div>
+      <div class="button-orders">
+        <button class="btn-order" *ngIf="statusOrder==='pending'" (click)="changeStatusOrder(order)">Envio a Mesa</button>
+        <button class="btn-order" *ngIf="statusOrder==='pending'" (click)="cancelOrder(order)">Cancelar pedido</button>
+        <button class="btn-order" *ngIf="statusOrder==='delivering'" (click)="changeStatusOrder(order)">Pagado</button>
+        <button class="btn-order" (click)="getOrdersbyId(order._id)">Detalles</button>
+      </div>
     </div>
-    <button *ngIf="statusOrder==='pending'" (click)="changeStatusOrder(order)">Envio a Mesa</button>
-    <button *ngIf="statusOrder==='pending'" (click)="cancelOrder(order)">Cancelar pedido</button>
-    <button *ngIf="statusOrder==='delivering'" (click)="changeStatusOrder(order)">Pagado</button>
-		</div>
   </div>
-
+  </div>
 </section>
