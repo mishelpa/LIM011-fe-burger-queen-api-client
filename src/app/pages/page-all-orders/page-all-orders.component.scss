@@ -1,3 +1,12 @@
 .all-orders{
     margin-top: 7%;
+    .listStatus{
+        margin-left: 10px;
+        text-align: center;
+        .active{
+            background-color: #e52d27;
+            border: 1px solid #e52d27;
+            font-weight: bolder;
+        }
+    }
 }

@@ -1,12 +1,15 @@
 .login-form{
-    width: 100%;
+    width: 98%;
     .card{
-        border-radius: 2%;
+        width: 40%;
+        padding-top: 5px;
+        display: flex;
         margin-left: 8%;
-        border: white solid 1pt;
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+        background: none;
+        border: none;
         img{
-            width: 50%;
+            width: 40%;
         }
+       
     }
 }

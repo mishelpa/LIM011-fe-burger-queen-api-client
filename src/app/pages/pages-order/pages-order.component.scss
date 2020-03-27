@@ -1,15 +1,25 @@
+.bodyBackground{
+    width: 100vw;
+    height: 95vh;
+    background-image: url(../../../assets/fondo.png);
 .order{
-    margin-top:6%;
-
+    padding: 130px;
+    width: 100%;
     .card{
-        border:#FFC107 solid 1pt;
+        border:#e52d27 solid 1pt;
 
         .card-header{
-            background:#FFC107;
-        }
+            background-color:#e52d27;
+            height: 28px;                                            }
         button{
             text-decoration: none;
-            color: black;
+            color:rgb(250, 248, 248);
+            font-family: 'Cabin', sans-serif;
+            font-size: 18px;
+            margin-top: -20px;
+            width: 100%;
+            text-align: center;
         }
     }
+}
 }

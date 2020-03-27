@@ -1,20 +1,52 @@
-.user{
-    border: #F7F5F9 solid 1pt;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-    margin-bottom: 5px;
-    padding: 5px;
+.header{
+    margin-bottom: 50px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    .title{
+        width: 95%;
+        font-family: 'Domine', serif;        
+    }
+    .btnAdd{
+        color: black;
+        font-size: 25px;
+        border:1px solid black;
+        background: none;
+    }
+    .btnAdd:hover{
+        color: white;
+        border: none;
+        background-color: black;
+    }
 }
+    .bodyList{
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        border-bottom: 1px inset rgb(139, 137, 137);
+        margin-bottom: 20px;
+        .textList{
+            padding-top: 10px;
+        }
+       .icons{
+            border: none;
+            color: white;
+            background: #e52d27;
+            font-size: 20px;
+            margin-right: 25px;
+            margin-bottom: 10px;            
+        }
+        .icons:hover{
+                background-color: white;
+                color: black;
+                border: 1px solid red;
+        }
+    }
 
 
-button{
-   color:#79432B;
-   font-size: 150%;
-   background: none;
-   border:none;
+.headerModal{
+    width: 100%;
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
 }
-
-button:hover{
-    background: white;
-    color:red;
-}
-
