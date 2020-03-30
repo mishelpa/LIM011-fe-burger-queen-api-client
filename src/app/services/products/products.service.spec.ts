@@ -1,29 +1,69 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ProductsService } from './products.service';
-
-class HttpClientMock {
-  get = jasmine.createSpy('httpClient.get');
-  post = jasmine.createSpy('httpClient.post');
-}
 
 describe('ProductsService', () => {
   let service: ProductsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        ProductsService,
-        {
-          provide: HttpClient,
-          useClass: HttpClientMock
-        }
-      ]
+      providers: [ProductsService],
+      imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(ProductsService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should get list of Products', () => {
+    const http = TestBed.inject(HttpTestingController);
+    let productsResponse;
+    service.getListProducts().subscribe((response) => {
+      productsResponse = response;
+      console.log(productsResponse);
+    });
+    http.expectOne('http://167.172.210.107/products').flush('listOfProducts');
+    expect(productsResponse).toEqual('listOfProducts');
+  });
+
+  it('should delete Product', () => {
+    const http = TestBed.inject(HttpTestingController);
+    let productsResponse;
+    service.deleteProduct('coffee').subscribe((response) => {
+      productsResponse = response;
+      console.log(productsResponse);
+    });
+    http.expectOne('http://167.172.210.107/products/coffee').flush('deleteCoffee');
+    expect(productsResponse).toEqual('deleteCoffee');
+  });
+
+  it('should update Product', () => {
+    const http = TestBed.inject(HttpTestingController);
+    let productsResponse;
+    const objProduct = {
+      _id: 'product1'
+    };
+    service.updateProduct(objProduct).subscribe((response) => {
+      productsResponse = response;
+      console.log(productsResponse);
+    });
+    http.expectOne('http://167.172.210.107/products/product1').flush('updateProduct');
+    expect(productsResponse).toEqual('updateProduct');
+  });
+
+  it('should create Product', () => {
+    const http = TestBed.inject(HttpTestingController);
+    let productsResponse;
+    const objProduct = {
+      _id: 'product1'
+    };
+    service.postProduct(objProduct).subscribe((response) => {
+      productsResponse = response;
+      console.log(productsResponse);
+    });
+    http.expectOne('http://167.172.210.107/products').flush('createProduct');
+    expect(productsResponse).toEqual('createProduct');
   });
 });

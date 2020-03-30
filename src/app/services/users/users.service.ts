@@ -12,7 +12,6 @@ export class UsersService {
   private userEdit = new BehaviorSubject(User);
   public currentUserEdit = this.userEdit.asObservable();
 
-
   constructor( public http: HttpClient ) {
     this.url = environment.apiUrl;
   }
