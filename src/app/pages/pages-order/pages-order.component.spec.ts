@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PagesOrderComponent } from './pages-order.component';
+import { By } from '@angular/platform-browser';
 
 describe('PagesOrderComponent', () => {
   let component: PagesOrderComponent;
@@ -21,5 +21,15 @@ describe('PagesOrderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call typeDesayuno by clicking the button', () => {
+    component.typeDesayuno();
+    expect(component.type).toBe('option1');
+  });
+
+  it('should call typeCena by clicking the button', () => {
+    component.typeCena();
+    expect(component.type).toBe('option2');
   });
 });

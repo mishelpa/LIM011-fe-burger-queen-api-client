@@ -22,4 +22,9 @@ describe('PageAllOrdersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get the status', () => {
+    component.getStatus('Ready');
+    expect(component.statusOrders).toBe('Ready');
+  });
 });
