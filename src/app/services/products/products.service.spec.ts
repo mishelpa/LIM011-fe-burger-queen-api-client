@@ -22,7 +22,6 @@ describe('ProductsService', () => {
     let productsResponse;
     service.getListProducts().subscribe((response) => {
       productsResponse = response;
-      console.log(productsResponse);
     });
     http.expectOne('http://167.172.210.107/products').flush('listOfProducts');
     expect(productsResponse).toEqual('listOfProducts');
@@ -33,7 +32,6 @@ describe('ProductsService', () => {
     let productsResponse;
     service.deleteProduct('coffee').subscribe((response) => {
       productsResponse = response;
-      console.log(productsResponse);
     });
     http.expectOne('http://167.172.210.107/products/coffee').flush('deleteCoffee');
     expect(productsResponse).toEqual('deleteCoffee');

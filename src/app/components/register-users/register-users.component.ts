@@ -42,7 +42,6 @@ export class RegisterUsersComponent implements OnInit {
         this.messageError();
       }
     );
-    this.saludo = 'hola';
   }
 
   messageError() {

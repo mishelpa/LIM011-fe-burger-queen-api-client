@@ -30,15 +30,11 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreateProduct(form) {
+  onCreateProduct() {
     this.productService.postProduct(this.newProduct).subscribe(
-      response => {
+      () => {
         window.location.reload();
       },
-      error => {
-        console.log(error);
-      }
     );
-    form.reset();
   }
 }

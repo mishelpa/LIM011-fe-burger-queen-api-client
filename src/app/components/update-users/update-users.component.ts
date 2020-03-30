@@ -22,7 +22,6 @@ export class UpdateUsersComponent implements OnInit {
   saveUpdateUsers() {
     this.usersService.updateUser(this.dataUser)
     .subscribe(data => {
-      console.log(data);
       window.location.reload();
     });
   }

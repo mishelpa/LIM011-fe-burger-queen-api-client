@@ -83,4 +83,9 @@ describe('RegisterUsersComponent', () => {
     // comprobar que addTask method fue llamado con el param 'task test'
     // expect(tasksService.addTask).toHaveBeenCalledWith('task test');
   });
+
+  it('should change status of error', () => {
+    component.messageError();
+    expect(component.isError).toBe(true);
+  });
 });

@@ -10,7 +10,7 @@ import { User } from '../../models/user';
   providers: [UsersService]
 })
 export class ListUsersComponent implements OnInit {
-  public users: User[];
+  public users: any;
   public dataUser: any;
   public rolCurrentUser: boolean = JSON.parse(sessionStorage.getItem('rolCurrentUser'));
 
@@ -27,16 +27,6 @@ export class ListUsersComponent implements OnInit {
       response => {
        this.users = response;
       },
-      error => {
-        if (error === 401) {
-          this.router.navigateByUrl('login');
-          console.log('No tiene autenticación');
-        }
-        if (error === 403) {
-          this.router.navigateByUrl('login');
-          console.log('No tiene permisos de administrador');
-        }
-      }
     );
   }
 
@@ -46,30 +36,26 @@ export class ListUsersComponent implements OnInit {
       this.dataUser = data;
       sessionStorage.setItem('rolCurrentUser', JSON.parse(this.dataUser.roles.admin));
       if (JSON.parse(sessionStorage.getItem('rolCurrentUser'))) {
-        console.log(JSON.parse(sessionStorage.getItem('rolCurrentUser')));
         this.getAllUsers();
       } else {
-        console.log(JSON.parse(sessionStorage.getItem('rolCurrentUser')));
         this.users = [this.dataUser];
       }
     });
   }
 
   deleteUserWithEmail(user) {
-    if (confirm('Estas seguro de eliminar?')) {
     this.usersService.deleteUser(user.email)
-    .subscribe(data => {
+    .subscribe(() => {
       if ( sessionStorage.getItem('emailCurrentUser') !== user.email) {
         window.location.reload();
       } else {
       this.router.navigate(['/login']);
       }
     });
-  }}
+  }
 
   saveEmailUser(user): void {
     this.usersService.changeUserEdit(user);
-    console.log(user);
   }
 
 }

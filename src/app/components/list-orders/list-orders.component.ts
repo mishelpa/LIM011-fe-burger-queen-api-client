@@ -33,17 +33,13 @@ export class ListOrdersComponent implements OnInit, OnChanges {
     );
   }
 
-  getOrdersbyId(idOrder: any) {
-    this.ordersService.getOrdersById(idOrder).subscribe(
-      response => {
-          console.log(response);
-      }
-    );
+  getOrdersbyId(idOrder) {
+    this.ordersService.getOrdersById(idOrder);
   }
 
   deleteAllOrder(order) {
     this.ordersService.deleteOrder(order)
-    .subscribe(data => {
+    .subscribe(() => {
       window.location.reload();
     });
   }
@@ -55,7 +51,7 @@ export class ListOrdersComponent implements OnInit, OnChanges {
       order.status = 'delivered';
     }
     this.ordersService.updateOrder(order)
-    .subscribe(data => {
+    .subscribe(() => {
       window.location.reload();
     });
   }
@@ -63,7 +59,7 @@ export class ListOrdersComponent implements OnInit, OnChanges {
   cancelOrder(order) {
     order.status = 'canceled';
     this.ordersService.updateOrder(order)
-    .subscribe(data => {
+    .subscribe(() => {
       window.location.reload();
     });
   }

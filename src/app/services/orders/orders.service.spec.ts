@@ -1,10 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { OrdersService } from './orders.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-class HttpClientMock {
-  get = jasmine.createSpy('httpClient.get');
-  post = jasmine.createSpy('httpClient.post');
-}
+
 
 describe('OrdersService', () => {
   let service: OrdersService;
@@ -78,5 +75,18 @@ describe('OrdersService', () => {
     });
     http.expectOne('http://167.172.210.107/orders/order1').flush('updateOrder1');
     expect(orderResponse).toEqual('updateOrder1');
+  });
+
+  it('should add list of products', () => {
+    const order = {name: 'choco'};
+    service.addListProducts(order);
+    expect(service.products).toEqual([{name: 'choco', quantity: 1}]);
+  });
+
+  it('should add list of products 2', () => {
+    const order = {name: 'choco'};
+    service.products = [{name: 'choco', quantity: 1}];
+    service.addListProducts(order);
+    expect(service.products).toEqual([{name: 'choco', quantity: 2}]);
   });
 });
