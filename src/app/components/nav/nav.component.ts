@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -8,11 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.scss'],
   providers: [AuthService]
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, DoCheck {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  public rolUser;
+  constructor(private authService: AuthService, private router: Router) {
+   }
 
   ngOnInit(): void {
+  }
+
+  ngDoCheck() {
+    this.rolUser = sessionStorage.getItem('rolCurrentUser');
   }
 
   logOut() {

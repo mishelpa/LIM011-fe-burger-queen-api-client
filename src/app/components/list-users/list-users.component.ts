@@ -19,7 +19,7 @@ export class ListUsersComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.getUserWithEmail();
+    this.getAllUsers();
   }
 
   getAllUsers()  {
@@ -28,19 +28,6 @@ export class ListUsersComponent implements OnInit {
        this.users = response;
       },
     );
-  }
-
-  getUserWithEmail() {
-    this.usersService.getUserByEmail(sessionStorage.getItem('emailCurrentUser'))
-    .subscribe(data => {
-      this.dataUser = data;
-      sessionStorage.setItem('rolCurrentUser', JSON.parse(this.dataUser.roles.admin));
-      if (JSON.parse(sessionStorage.getItem('rolCurrentUser'))) {
-        this.getAllUsers();
-      } else {
-        this.users = [this.dataUser];
-      }
-    });
   }
 
   deleteUserWithEmail(user) {
@@ -55,6 +42,7 @@ export class ListUsersComponent implements OnInit {
   }
 
   saveEmailUser(user): void {
+    console.log('valores del usuario', user);
     this.usersService.changeUserEdit(user);
   }
 

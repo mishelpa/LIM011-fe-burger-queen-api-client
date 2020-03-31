@@ -14,7 +14,7 @@ export class RegisterUsersComponent implements OnInit {
   public newUser: any;
   public email: string;
   public password: string;
-  public admin: boolean;
+  public admin = false;
   public user: any;
   public isError = false;
   public saludo;
@@ -34,9 +34,11 @@ export class RegisterUsersComponent implements OnInit {
 
 
   onCreateUsers() {
+    console.log(this.newUser);
     this.usersService.postUser(this.newUser).subscribe(
       response => {
-        window.location.reload();
+        console.log(response);
+        /* window.location.reload(); */
       },
       error => {
         this.messageError();

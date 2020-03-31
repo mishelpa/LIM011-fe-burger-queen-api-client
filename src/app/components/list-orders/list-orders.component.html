@@ -25,8 +25,8 @@
         <div class="container products-order">
           <div class="row" *ngFor="let product of order.products">
             <span clas="col-2">{{product.qty}}</span>
-            <span class="col-7 pl-3">{{product.product.name}}</span>
-            <span class="col-3">S/. {{product.product.price}}</span>
+            <span *ngIf="product.product!==undefined" class="col-7 pl-3">{{product.product.name}}</span>
+            <span *ngIf="product.product!==undefined" class="col-3">S/. {{product.product.price}}</span>
           </div>
         </div>
         <div class="button-orders">

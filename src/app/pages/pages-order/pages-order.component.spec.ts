@@ -25,11 +25,11 @@ describe('PagesOrderComponent', () => {
 
   it('should call typeDesayuno by clicking the button', () => {
     component.typeDesayuno();
-    expect(component.type).toBe('option1');
+    expect(component.type).toBe('Desayuno');
   });
 
   it('should call typeCena by clicking the button', () => {
     component.typeCena();
-    expect(component.type).toBe('option2');
+    expect(component.type).toBe('Almuerzo y cena');
   });
 });

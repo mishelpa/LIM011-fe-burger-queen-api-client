@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/services/users/users.service';
 })
 export class UpdateUsersComponent implements OnInit {
   public dataUser: any;
+  public newUser: any;
   public rolCurrentUser: boolean = JSON.parse(sessionStorage.getItem('rolCurrentUser'));
   constructor(private router: Router, private usersService: UsersService) {
     this.usersService.currentUserEdit.subscribe(userEdit => {
@@ -20,7 +21,8 @@ export class UpdateUsersComponent implements OnInit {
     }
 
   saveUpdateUsers() {
-    this.usersService.updateUser(this.dataUser)
+    this.newUser = this.dataUser;
+    this.usersService.updateUser(this.newUser)
     .subscribe(data => {
       window.location.reload();
     });

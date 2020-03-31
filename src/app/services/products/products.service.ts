@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Product } from 'src/app/models/product';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -21,7 +21,8 @@ export class ProductsService {
   }
 
   getListProducts(): Observable<any> {
-    return this.http.get(`${this.url}products`);
+
+    return this.http.get(`${this.url}products/?limit=12`);
   }
 
   deleteProduct(id: any) {

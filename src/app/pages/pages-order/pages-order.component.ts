@@ -15,9 +15,9 @@ export class PagesOrderComponent implements OnInit {
   ngOnInit(): void {
   }
   typeDesayuno() {
-    this.type = 'option1';
+    this.type = 'Desayuno';
   }
   typeCena() {
-    this.type = 'option2';
+    this.type = 'Almuerzo y cena';
   }
 }
