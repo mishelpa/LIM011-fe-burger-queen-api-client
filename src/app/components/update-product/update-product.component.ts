@@ -24,11 +24,9 @@ export class UpdateProductComponent implements OnInit {
   }
 
   saveUpdateProduct() {
-    console.log(this.dataProduct);
     this.productsService.updateProduct(this.dataProduct)
     .subscribe(data => {
       window.location.reload();
-      console.log(data);
     });
   }
 

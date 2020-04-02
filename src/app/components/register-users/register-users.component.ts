@@ -34,11 +34,9 @@ export class RegisterUsersComponent implements OnInit {
 
 
   onCreateUsers() {
-    console.log(this.newUser);
     this.usersService.postUser(this.newUser).subscribe(
       response => {
-        console.log(response);
-        /* window.location.reload(); */
+        window.location.reload();
       },
       error => {
         this.messageError();

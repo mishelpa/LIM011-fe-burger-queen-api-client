@@ -45,17 +45,6 @@ describe('RegisterUsersComponent', () => {
     expect(component).toBeTruthy();
   });
 
-/*   it('Deberia llamar onCreateUsers al dar click al button', () => {
-    // creamos un spy de sendTask method para comprobar que haya sido llamado
-    spyOn(component, 'onCreateUsers');
-    // disparams el click event del button
-    inputSubmit.nativeElement.click();
-    // fixture.detectChanges() detecta los cambios en el componente | template
-    fixture.detectChanges();
-    // comprobar que sendTask fue llamado
-    expect(component.onCreateUsers).toHaveBeenCalled();
-  }); */
-
   it('Deberia llamar a sendTask al dar submit al form', () => {
     // creamos un spy de sendTask method para comprobar que haya sido llamado
     spyOn(component, 'onCreateUsers');
@@ -67,21 +56,6 @@ describe('RegisterUsersComponent', () => {
     fixture.detectChanges();
     // comprobar que sendTask fue llamado
     expect(component.onCreateUsers).toHaveBeenCalled();
-  });
-
-  it('Deberia llamar a addTask al ejecutar sendTask', () => {
-    // actualizamos el valor de taskValue
-    component.newUser.email = 'user1@gmail.com';
-    // fixture.detectChanges() detecta los cambios en el componente | template
-    fixture.detectChanges();
-    component.onCreateUsers();
-    fixture.detectChanges();
-    // comprobar que addTask method fue llamado
-    // expect(component.saludo).toBe('hola');
-    expect(userService.postUser).toHaveBeenCalled();
-    // expect(usersService.postUser).toHaveBeenCalled();
-    // comprobar que addTask method fue llamado con el param 'task test'
-    // expect(tasksService.addTask).toHaveBeenCalledWith('task test');
   });
 
   it('should change status of error', () => {

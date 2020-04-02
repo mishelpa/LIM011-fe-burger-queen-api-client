@@ -42,7 +42,6 @@ export class ListUsersComponent implements OnInit {
   }
 
   saveEmailUser(user): void {
-    console.log('valores del usuario', user);
     this.usersService.changeUserEdit(user);
   }
 

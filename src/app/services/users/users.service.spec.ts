@@ -23,7 +23,6 @@ describe('UsersService', () => {
     let usersResponse;
     usersService.getListUsers().subscribe((response) => {
       usersResponse = response;
-      console.log(usersResponse);
     });
     http.expectOne('http://167.172.210.107/users').flush('listOfUsers');
     expect(usersResponse).toEqual('listOfUsers');

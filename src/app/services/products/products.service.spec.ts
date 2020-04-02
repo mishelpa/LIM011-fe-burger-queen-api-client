@@ -20,10 +20,10 @@ describe('ProductsService', () => {
   it('should get list of Products', () => {
     const http = TestBed.inject(HttpTestingController);
     let productsResponse;
-    service.getListProducts().subscribe((response) => {
+    service.getListProducts('1').subscribe((response) => {
       productsResponse = response;
     });
-    http.expectOne('http://167.172.210.107/products').flush('listOfProducts');
+    http.expectOne('http://167.172.210.107/products/?limit=9&page=1').flush('listOfProducts');
     expect(productsResponse).toEqual('listOfProducts');
   });
 
@@ -45,7 +45,6 @@ describe('ProductsService', () => {
     };
     service.updateProduct(objProduct).subscribe((response) => {
       productsResponse = response;
-      console.log(productsResponse);
     });
     http.expectOne('http://167.172.210.107/products/product1').flush('updateProduct');
     expect(productsResponse).toEqual('updateProduct');
@@ -59,7 +58,6 @@ describe('ProductsService', () => {
     };
     service.postProduct(objProduct).subscribe((response) => {
       productsResponse = response;
-      console.log(productsResponse);
     });
     http.expectOne('http://167.172.210.107/products').flush('createProduct');
     expect(productsResponse).toEqual('createProduct');
