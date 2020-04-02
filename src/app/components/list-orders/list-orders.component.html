@@ -11,14 +11,14 @@
         <div>
           <div class="text-center header-order">
             <span *ngIf="order.status ==='pending'"><b>ORDEN PENDIENTE</b></span>
-            <span *ngIf="order.status ==='delivering'"><b>ORDEN LISTA</b></span>
+            <span *ngIf="order.status ==='delivering'"><b>ORDEN LISTA PARA SERVIR</b></span>
             <span *ngIf="order.status ==='delivered'"><b>ORDEN ENTREGADA</b></span>
             <span *ngIf="order.status ==='canceled'"><b>ORDEN ANULADA</b></span>
             <p>{{order.dateEntry | date:'medium'}}</p>
           </div>
           <div class="details-order">
             <span>Mozo: {{order.userId}}</span>
-            <p>Cliente: {{order.client}}</p>
+            <p><b>Cliente: {{order.client}}</b></p>
           </div>
   
         </div> 
@@ -30,9 +30,9 @@
           </div>
         </div>
         <div class="button-orders">
-          <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='pending'" (click)="changeStatusOrder(order)">Envio a Mesa</button>
+          <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='pending'" (click)="changeStatusOrder(order)">Enviar a Mesa</button>
           <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='pending'" (click)="cancelOrder(order)">Cancelar pedido</button>
-          <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='delivering'" (click)="changeStatusOrder(order)">Pagado</button>
+          <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='delivering'" (click)="changeStatusOrder(order)">Pedido Entregado</button>
           <button class="btn-order btn-outline-danger" (click)="getOrdersbyId(order._id)">Detalles</button>
         </div>
       </div>

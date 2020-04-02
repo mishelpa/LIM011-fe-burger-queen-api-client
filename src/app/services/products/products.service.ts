@@ -13,6 +13,7 @@ export class ProductsService {
   private url: string;
 
   constructor(private http: HttpClient) { this.url = environment.apiUrl; }
+
   private productEdit = new BehaviorSubject(Product);
   public currentProductEdit = this.productEdit.asObservable();
 
@@ -20,9 +21,9 @@ export class ProductsService {
     this.productEdit.next(product);
   }
 
-  getListProducts(): Observable<any> {
-
-    return this.http.get(`${this.url}products/?limit=12`);
+  getListProducts(pag): Observable<any> {
+    const params = new HttpParams().set('page', pag);
+    return this.http.get(`${this.url}products/?limit=9`, {params});
   }
 
   deleteProduct(id: any) {

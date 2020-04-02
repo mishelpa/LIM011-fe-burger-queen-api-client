@@ -24,7 +24,6 @@ export class OrdersProductsComponent implements OnInit {
     this.ordersService.getListProducts().subscribe(
       response => {
         this.productsInOrders = response;
-        console.log(response);
       }
     );
   }

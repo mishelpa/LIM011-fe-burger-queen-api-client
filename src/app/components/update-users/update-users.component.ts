@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
@@ -9,9 +8,7 @@ import { UsersService } from 'src/app/services/users/users.service';
 })
 export class UpdateUsersComponent implements OnInit {
   public dataUser: any;
-  public newUser: any;
-  public rolCurrentUser: boolean = JSON.parse(sessionStorage.getItem('rolCurrentUser'));
-  constructor(private router: Router, private usersService: UsersService) {
+  constructor(private usersService: UsersService) {
     this.usersService.currentUserEdit.subscribe(userEdit => {
         this.dataUser = userEdit;
       });
@@ -21,9 +18,8 @@ export class UpdateUsersComponent implements OnInit {
     }
 
   saveUpdateUsers() {
-    this.newUser = this.dataUser;
-    this.usersService.updateUser(this.newUser)
-    .subscribe(data => {
+    this.usersService.updateUser(this.dataUser)
+    .subscribe(() => {
       window.location.reload();
     });
   }

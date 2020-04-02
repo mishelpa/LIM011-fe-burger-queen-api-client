@@ -1,5 +1,5 @@
 .qty-product{
-    border: 2pt solid #e52d27;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.89);
 }
 
 .product-details{
@@ -9,20 +9,20 @@
     .name-product{
         width: 70%;
         background: white;
-        border: 2pt solid #e52d27;
         margin-right: 2%;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.89);
     }
     .price-product{
         width: 15%;
         background: white;
-        border: 2pt solid #e52d27;
         margin-right: 2%;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.89);
     }
     .total-product{
         width: 15%;
         background: white;
-        border: 2pt solid #e52d27;
         margin-right: 2%;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.89);
     }
 }
 
@@ -33,3 +33,4 @@
     background-color: white;
     color: red;
 }
+

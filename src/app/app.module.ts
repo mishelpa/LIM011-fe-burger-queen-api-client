@@ -26,6 +26,7 @@ import { BillOrderComponent } from './components/bill-order/bill-order.component
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 import { PageAllOrdersComponent } from './pages/page-all-orders/page-all-orders.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SliderComponent } from './components/slider/slider.component';
     BillOrderComponent,
     ListOrdersComponent,
     PageAllOrdersComponent,
-    SliderComponent
+    SliderComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

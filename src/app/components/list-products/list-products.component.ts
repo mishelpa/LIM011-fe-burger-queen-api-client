@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck} from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { PaginationComponent } from 'src/app/components/pagination/pagination.component';
 import { Router } from '@angular/router';
 import { Product } from '../../models/product';
 @Component({
@@ -8,20 +9,27 @@ import { Product } from '../../models/product';
   styleUrls: ['./list-products.component.scss'],
   providers: [ProductsService]
 })
-export class ListProductsComponent implements OnInit {
+export class ListProductsComponent implements OnInit, DoCheck {
   public products: Product[];
-  public dataProduct: any;
-
+  public numberPage: string;
   constructor(private productsService: ProductsService, private router: Router) {
-    this.productsService.currentProductEdit.subscribe(productEdit => { this.dataProduct = productEdit; console.log(productEdit); });
+    this.numberPage = '1';
   }
 
   ngOnInit(): void {
-    this.getAllProducts();
+    this.getAllProducts(this.numberPage);
   }
 
-  getAllProducts() {
-    this.productsService.getListProducts().subscribe(
+  ngDoCheck(): void {
+    this.getAllProducts(this.numberPage);
+  }
+
+  getPage(event) {
+    this.numberPage = event;
+  }
+
+  getAllProducts(pag) {
+    this.productsService.getListProducts(pag).subscribe(
       response => {
         this.products = response;
       }

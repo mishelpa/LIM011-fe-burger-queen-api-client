@@ -31,7 +31,7 @@ export class OrdersService {
  }
 
   getListProducts(): Observable<any> {
-    return this.http.get(`${this.url}products`);
+    return this.http.get(`${this.url}products/?limit=20`);
   }
 
   getListOrders(): Observable<any> {
