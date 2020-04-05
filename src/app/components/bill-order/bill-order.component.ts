@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 
 @Component({
@@ -6,15 +6,12 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
   templateUrl: './bill-order.component.html',
   styleUrls: ['./bill-order.component.scss']
 })
-export class BillOrderComponent implements OnInit {
+export class BillOrderComponent {
 
   public orders: any;
   public num: number;
   constructor(private ordersService: OrdersService) {
     this.ordersService.currentListProducts.subscribe(product => this.orders = product);
-  }
-
-  ngOnInit(): void {
   }
 
   deleteProductOfBill(product) {

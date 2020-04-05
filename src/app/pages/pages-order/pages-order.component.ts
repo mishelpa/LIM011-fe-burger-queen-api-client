@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,14 +6,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pages-order.component.html',
   styleUrls: ['./pages-order.component.scss']
 })
-export class PagesOrderComponent implements OnInit {
+export class PagesOrderComponent {
   public type: string;
 
   constructor() {
    }
 
-  ngOnInit(): void {
-  }
   typeDesayuno() {
     this.type = 'Desayuno';
   }

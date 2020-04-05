@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/users/users.service'
+import { Component } from '@angular/core';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-pages-users',
@@ -7,12 +7,8 @@ import { UsersService } from '../../services/users/users.service'
   styleUrls: ['./pages-users.component.scss'],
   providers: [UsersService],
 })
-export class PagesUsersComponent implements OnInit {
+export class PagesUsersComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 
 }

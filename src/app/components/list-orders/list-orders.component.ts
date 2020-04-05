@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
   templateUrl: './list-orders.component.html',
   styleUrls: ['./list-orders.component.scss']
 })
-export class ListOrdersComponent implements OnInit, OnChanges {
+export class ListOrdersComponent implements OnChanges {
 
   @Input() public statusOrder: string;
 
@@ -15,10 +15,6 @@ export class ListOrdersComponent implements OnInit, OnChanges {
   public  dataOrders: any;
   constructor(private ordersService: OrdersService) {
     this.ordersService.currentOrdersEdit.subscribe(order => { this.dataOrders = order; });
-  }
-
-
-  ngOnInit(): void {
   }
 
   ngOnChanges(): void {

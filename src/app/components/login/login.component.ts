@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UsersService } from '../../services/users/users.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
   providers: [AuthService, UsersService],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   public email: string;
   public password: string;
   public isError = false;
@@ -26,9 +26,6 @@ export class LoginComponent implements OnInit {
       password: this.password
   };
 }
-
-  ngOnInit(): void {
-  }
 
   onSubmitLogin(form) {
   sessionStorage.setItem('emailCurrentUser', this.newUser.email );

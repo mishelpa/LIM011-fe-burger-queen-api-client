@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
@@ -6,16 +6,13 @@ import { UsersService } from 'src/app/services/users/users.service';
   templateUrl: './update-users.component.html',
   styleUrls: ['./update-users.component.scss']
 })
-export class UpdateUsersComponent implements OnInit {
+export class UpdateUsersComponent {
   public dataUser: any;
   constructor(private usersService: UsersService) {
     this.usersService.currentUserEdit.subscribe(userEdit => {
         this.dataUser = userEdit;
       });
   }
-
-  ngOnInit(): void {
-    }
 
   saveUpdateUsers() {
     this.usersService.updateUser(this.dataUser)

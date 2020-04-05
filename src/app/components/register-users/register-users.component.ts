@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { UsersService } from '../../services/users/users.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register-users.component.scss'],
   providers: [UsersService],
 })
-export class RegisterUsersComponent implements OnInit {
+export class RegisterUsersComponent {
   public newUser: any;
   public email: string;
   public password: string;
@@ -28,10 +28,6 @@ export class RegisterUsersComponent implements OnInit {
     }
     };
   }
-
-  ngOnInit(): void {
-  }
-
 
   onCreateUsers() {
     this.usersService.postUser(this.newUser).subscribe(

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -6,11 +6,9 @@ import { ProductsService } from 'src/app/services/products/products.service';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent {
   @Output() public numPage = new EventEmitter<string>();
   constructor( ) { }
-  ngOnInit(): void {
-  }
 
   getPage(page: string) {
     this.numPage.emit(page);

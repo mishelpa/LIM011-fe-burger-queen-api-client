@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductsService } from '../../services/products/products.service';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent {
 
   public newProduct: any;
   public name: string;
@@ -24,10 +24,6 @@ export class AddProductComponent implements OnInit {
     image: this.image,
     type: this.type
     };
-  }
-
-
-  ngOnInit(): void {
   }
 
   onCreateProduct() {

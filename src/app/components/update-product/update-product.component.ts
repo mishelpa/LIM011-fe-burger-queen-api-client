@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
   templateUrl: './update-product.component.html',
   styleUrls: ['./update-product.component.scss']
 })
-export class UpdateProductComponent implements OnInit {
+export class UpdateProductComponent {
   public newProduct: any;
   public dataProduct: any;
   public name: string;
@@ -19,9 +19,6 @@ export class UpdateProductComponent implements OnInit {
         this.dataProduct = productEdit;
       });
    }
-
-  ngOnInit(): void {
-  }
 
   saveUpdateProduct() {
     this.productsService.updateProduct(this.dataProduct)
