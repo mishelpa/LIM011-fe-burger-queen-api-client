@@ -9,10 +9,10 @@
 </div>
   <div *ngFor="let user of users; index as i">
     <div class="row bodyList">
-      <div class="col-1 textList"><b>No. {{i+1}}</b></div>
-      <div class="col-5 textList"><b>{{user.email}}</b></div>
-      <div class="col-4 textList"><b *ngIf="user.roles.admin" class="mr-3">Administrador</b></div>
-      <div class="col-2" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="col-2 col-md-1 textList"><b>No. {{i+1}}</b></div>
+      <div class="col-10 col-md-5 textList"><b>{{user.email}}</b></div>
+      <div class="col-4 col-md-4 textList"><b *ngIf="user.roles.admin" class="mr-3">Administrador</b></div>
+      <div class="col-8 col-md-2" role="toolbar" aria-label="Toolbar with button groups">
       <button type="button" class="btn btn-light icons" title="Editar" (click)=saveEmailUser(user) data-toggle="modal"
        data-target="#updateUser"><i class="fa fa-pencil" aria-hidden="true"></i></button>
       <button type="button" class="btn btn-light icons" title="Eliminar" (click)=deleteUserWithEmail(user)><i

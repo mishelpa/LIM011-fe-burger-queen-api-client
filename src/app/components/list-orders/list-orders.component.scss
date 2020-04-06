@@ -1,6 +1,9 @@
+
 .all-bill{
 
   justify-content: space-between;
+  margin-right: 2%;
+
  
   .bill{
       padding-bottom: 10px;
@@ -85,5 +88,14 @@
   }
   .btn-order:hover{
     background-color:  #560C06;
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .all-bill{
+    justify-content: center;
+    .bill{
+      margin-left: 3%;
+    }
   }
 }

@@ -6,6 +6,7 @@
         font-family: 'Domine', serif;        
         text-align: center;
         .title{
+            margin-top: 4%;
             width: 95%;
             text-align: center;
             justify-content: center;
@@ -15,7 +16,7 @@
             font-size: 30px;
             background: none;
             border: none;
-
+            margin-top: 4%;
         }
         .btnAdd:hover{
             border: none;
@@ -76,5 +77,8 @@
     width: 100%;
     text-align: center;
     font-family: 'Cabin', sans-serif;
+}
 
+@media only screen and (max-device-width: 480px){
+    
 }

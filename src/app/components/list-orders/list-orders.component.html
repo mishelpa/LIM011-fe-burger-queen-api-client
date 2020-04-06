@@ -1,6 +1,6 @@
-<section class="container">
+<section class="container-fluid">
     <div class="row all-bill">
-      <div class="col-6 col-md-4 bill" *ngFor="let order of orders">
+      <div class="col-12 col-md-4 bill" *ngFor="let order of orders">
         <div class="orderMain" [ngClass]=
         "{'orderDelivered':order.status ==='delivered',
           'orderDelivering':order.status ==='delivering',

@@ -10,7 +10,6 @@ import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PagesUsersComponent } from './pages/pages-users/pages-users.component';
 import { RegisterUsersComponent } from './components/register-users/register-users.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
-import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { AuthInterceptorService } from './services/auth-interceptor/auth-interceptor.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavComponent } from './components/nav/nav.component';
@@ -36,7 +35,6 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PagesUsersComponent,
     RegisterUsersComponent,
     ListUsersComponent,
-    PageHomeComponent,
     NavComponent,
     UpdateUsersComponent,
     ListProductsComponent,
