@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UsersService } from '../../services/users/users.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register-users',
@@ -19,7 +19,7 @@ export class RegisterUsersComponent {
   public isError = false;
   public saludo;
 
-  constructor(private usersService: UsersService, private router: Router) {
+  constructor(private usersService: UsersService, private router: Router, public location: Location) {
     this.newUser = {
     email: this.email,
     password: this.password,
@@ -32,7 +32,9 @@ export class RegisterUsersComponent {
   onCreateUsers() {
     this.usersService.postUser(this.newUser).subscribe(
       response => {
-        window.location.reload();
+       // window.location.reload();
+       console.log(decodeURI(this.location.path()));
+       this.router.navigate([decodeURI(this.location.path())]);
       },
       error => {
         this.messageError();

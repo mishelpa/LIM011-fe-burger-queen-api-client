@@ -39,5 +39,4 @@ export class ProductsService {
   updateProduct(product: any) {
     return this.http.put(`${this.url}products/${product._id}`, product);
   }
-
 }

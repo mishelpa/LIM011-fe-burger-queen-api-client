@@ -38,11 +38,16 @@
   width: 90%;
   font-size: 80%;
   margin-bottom: 10%;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.89);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.89);
   border: gray 1pt solid; 
   span{
     padding: 3%;
   }
+}
+
+.img-product{
+  width: 50px;
+  max-height: 50px;
 }
 
 .button-orders{

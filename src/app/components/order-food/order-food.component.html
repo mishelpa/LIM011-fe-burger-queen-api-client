@@ -1,30 +1,20 @@
 <section class="container">
-    <div class="row">
-  
-      <nav aria-label="breadcrumb" class="col-12 header-order">
-        <ol class="breadcrumb d-flex justify-content-between">
-          <li class="breadcrumb-item" aria-current="page"><b>PEDIDOS</b></li>
-          <li aria-current="page"><b> Fecha:</b> {{dateOrder|date:"short"}}</li>
-          <li aria-current="page"><b> Mesero:</b> {{emailUser}}</li>
-        </ol>
-      </nav>
-  
-      <div class="input-group mb-3 col-12 ">
-        <div class="input-group-prepend">
-          <span class="input-group-text name-client" id="basic-addon1">Cliente</span>
+    <div class="card mb-3" style="width: 100%;">
+      <div class="card-header text-center">{{emailUser}} </div>
+      <div class="card-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text name-client" id="basic-addon1">Cliente</span>
+          </div>
+          <input type="text" class="form-control input-name-client" [(ngModel)]=nameClient placeholder="Nombre del cliente" aria-label="Username" aria-describedby="basic-addon1">
         </div>
-        <input type="text" class="form-control input-name-client" [(ngModel)]=nameClient placeholder="Nombre del cliente" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="col-12"><app-bill-order></app-bill-order></div>
+        <div class="mx-auto my-4 p-1 div-total-bill">
+          <span class="total-bill" ><b>TOTAL: {{getTotalBill()}}</b></span>
+        </div>
+        <div class="btn-post-order">
+          <button type="button" class="btn" (click)="postOrderFood()">Enviar Pedido</button>
+        </div>
       </div>
-  
-      <div class="col-12"><app-bill-order></app-bill-order></div>
-  
-    </div>
-  
-    <div class="input-group-prepend d-flex flex-row-reverse">
-      <span class="input-group-text total-bill" id="basic-addon1"><b>Total: {{getTotalBill()}}</b></span>
-    </div>
-  
-    <div class="btn-post-order">
-      <button type="button" class="btn btn-danger" (click)="postOrderFood()">Enviar Pedido</button>
     </div>
   </section>

@@ -30,7 +30,8 @@ export class ListOrdersComponent implements OnChanges {
   }
 
   getOrdersbyId(idOrder) {
-    this.ordersService.getOrdersById(idOrder);
+    this.ordersService.getOrdersById(idOrder)
+    .subscribe(response => console.log(response));
   }
 
   deleteAllOrder(order) {

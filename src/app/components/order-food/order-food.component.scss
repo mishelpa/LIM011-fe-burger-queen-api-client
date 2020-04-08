@@ -1,20 +1,31 @@
-.header-order{
-    ol{
-    background: white;
+.card{
     border: 2pt solid  #e52d27;
-    }
+}
+.card-header{
+    background-color:#E52D27;
+    color: white;
 }
 
 .name-client{
-    background: white;
-    border: 2pt solid  #e52d27;
+    background-color: #E52D27;
+    color: white;
 }
 
-.total-bill{
+.div-total-bill{
+    display: flex;
+    justify-content: center;
     border: 2pt solid  #e52d27;
-    background: white;
+    width: 25%;
 }
 
 .btn-post-order{
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    .btn{
+        color: white;
+        background-color: #E52D27;
+        width: 50%;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.89);
+    } 
 }
+

@@ -1,4 +1,4 @@
-<section class="container factura" *ngFor="let order of orders">
+<!-- <section class="container factura" *ngFor="let order of orders">
 <div class="input-group mb-3 row ">
     <input type="number" class="form-control col-2 qty-product text-center" value="" [(ngModel)]=order.quantity aria-describedby="basic-addon1">
     <div class="input-group-prepend col-9  product-details">
@@ -8,4 +8,22 @@
     </div>
     <button type="button" class="btn btn-danger btnDelete col-1" title="Eliminar" (click)="deleteProductOfBill(order)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
   </div>
+</section> -->
+
+<section class="bill">
+  <table style="width:100%">
+    <tr>
+      <th>Cantidad</th>
+      <th class="text-center">Producto</th>
+      <th>Precio</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let order of orders">
+      <td><input type="number" class="qty-product text-center" value="" [(ngModel)]=order.quantity aria-describedby="basic-addon1"></td>
+      <td >{{order.name}}</td>
+      <td >{{order.price}}</td>
+      <td >{{order.price*order.quantity}}</td>
+      <td><button type="button" class="btn btn-danger btnDelete" title="Eliminar" (click)="deleteProductOfBill(order)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+    </tr>
+  </table>
 </section>
