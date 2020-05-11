@@ -13,6 +13,7 @@ export class ListOrdersComponent implements OnChanges {
   public orders: any;
   public products: any;
   public  dataOrders: any;
+  public orderById: any;
   constructor(private ordersService: OrdersService) {
     this.ordersService.currentOrdersEdit.subscribe(order => { this.dataOrders = order; });
   }
@@ -31,7 +32,10 @@ export class ListOrdersComponent implements OnChanges {
 
   getOrdersbyId(idOrder) {
     this.ordersService.getOrdersById(idOrder)
-    .subscribe(response => console.log(response));
+    .subscribe(response => {
+      this.orderById = response.products;
+    }
+      );
   }
 
   deleteAllOrder(order) {

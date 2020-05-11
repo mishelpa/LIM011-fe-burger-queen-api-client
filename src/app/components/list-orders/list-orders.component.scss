@@ -40,9 +40,7 @@
   margin-bottom: 10%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.89);
   border: gray 1pt solid; 
-  span{
-    padding: 3%;
-  }
+  padding: 2% 1%;
 }
 
 .img-product{
@@ -65,6 +63,13 @@
   }
   .btn-order:hover{
     background-color: red;
+  }
+}
+.modal-header{
+  background-color: #E52D27;
+  color: white;
+  span{
+    color: white;
   }
 }
 

@@ -23,48 +23,52 @@
   
         </div> 
         <div class="container products-order">
-          <div class="row" *ngFor="let product of order.products">
-            <span clas="col-2">{{product.qty}}</span>
-            <span *ngIf="product.product!==undefined" class="col-7 pl-3">{{product.product.name}}</span>
-            <span *ngIf="product.product!==undefined" class="col-3">S/. {{product.product.price}}</span>
-          </div>
+          <table style="width:100%">
+            <tr class="py-3" *ngFor="let product of order.products">
+              <th>{{product.qty}}</th>
+              <th *ngIf="product.product!==undefined" class="text-center">{{product.product.name}}</th>
+              <th *ngIf="product.product!==undefined" >S/. {{product.product.price}}</th>
+              <th  *ngIf="product.product!==undefined" >S/.{{product.qty*product.product.price}}</th>
+            </tr>
+          </table>
         </div>
         <div class="button-orders">
           <button class="btn-order btn-outline-danger"  *ngIf="statusOrder==='pending'" (click)="getOrdersbyId(order._id)" data-toggle="modal" data-target="#exampleModalCenter">Detalles</button>
           <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='pending'" (click)="changeStatusOrder(order)">Enviar a Mesa</button>
-          <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='pending'" (click)="cancelOrder(order)">Cancelar pedido</button>
+          <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='pending'" (click)="cancelOrder(order)">Anular pedido</button>
           <button class="btn-order btn-outline-danger" *ngIf="statusOrder==='delivering'" (click)="changeStatusOrder(order)">Pedido Entregado</button>
         </div>
       </div>
-      <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Detalles del pedido</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <table class="container" style="width:90%">
-                <tr>
-                  <th>Cantidad</th>
-                  <th>Imagen</th>
-                  <th class="text-center">Producto</th>
-                  <th>Tipo</th>
-                </tr>
-                <tr *ngFor="let product of order.products">
-                  <td >{{product.qty}}</td>
-                  <td><img src="{{product.product.image}}" class="img-product" alt=""></td>
-                  <td>{{product.product.name}}</td>
-                  <td>{{product.product.type}}</td>
-                </tr>
-              </table>
-            </div>
+    </div>
+    </div>
+
+    <div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Detalles del pedido</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="container" style="width:90%">
+              <tr>
+                <th>Cantidad</th>
+                <th>Imagen</th>
+                <th class="text-center">Producto</th>
+                <th>Tipo</th>
+              </tr>
+              <tr *ngFor="let orderId of orderById">
+                <td >{{orderId.qty}}</td>
+                <td><img src="{{orderId.product.image}}" class="img-product" alt=""></td>
+                <td>{{orderId.product.name}}</td>
+                <td>{{orderId.product.type}}</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
   </section>

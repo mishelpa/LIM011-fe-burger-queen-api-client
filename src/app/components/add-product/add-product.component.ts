@@ -29,7 +29,7 @@ export class AddProductComponent {
   onCreateProduct() {
     this.productService.postProduct(this.newProduct).subscribe(
       () => {
-        // window.location.reload();
+
       },
     );
   }
